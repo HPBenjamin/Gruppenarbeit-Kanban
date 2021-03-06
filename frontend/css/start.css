@@ -1,0 +1,118 @@
+body {
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    right: 0;
+    height: 72px;
+    border-bottom: solid;
+    align-items: center;
+}
+
+.leftsidebar {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    left: 0;
+    top: 72px;
+    bottom: 0;
+    align-items: center;
+}
+
+.leftsidebar > button{
+    height: 42px;
+    width: 84px;
+    margin-left: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.d-none {
+    display: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form1 {
+    margin-left: 72px;
+    margin-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    width: 480px;
+}
+
+.form2{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    min-height: 24px;
+    margin-bottom: 4px;
+}
+
+.text{
+    margin-top: 4px;
+    min-width: 420px;
+    min-height: 128px;
+}
+
+.submitbutton{
+    margin-top: 8px;
+    height: 42px;
+    width: auto;
+}
+
+.headerbuttontoogle{
+    margin-left: 12px;
+    width: auto;
+    height: 42px;
+}
+
+.titlebeforetask{
+    display: flex;
+    margin-left: 72px;
+}
+
+.taskbox{
+    display: flex;
+    flex-direction: row;
+    margin-left: 36px;
+    margin-top: 72px;
+    width: inherit;
+    height: max-content;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+    margin: 6px;
+    max-width: 360px;
+    height: max-content;
+    padding: 8px;
+    background-color: yellow;
+    justify-content: center
+};
+
+.deleteicon{
+    display: flex;
+    width: 48px;
+    height: 48px;
+}

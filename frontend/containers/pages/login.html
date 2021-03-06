@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../../css/start.css" rel="stylesheet">
+    </link>
+
+    <script src="../../tests/users.js"></script>
+
+    <script src="../../shared/auth.js"></script>
+
+</header>
+
+<body>
+
+    <form action="" onsubmit="checkUser( event, Name, Pwd )">
+        <input id="nameInput" placeholder="name" onchange="changedName()" />
+        <input id="pwdInput" placeholder="pwd please" onchange="changedPwd()" />
+        <button>Login</button>
+    </form>
+
+    <a href="http://127.0.0.1:5500/frontend/index.html">Index</a>
+
+</body>
+
+</html>
