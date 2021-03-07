@@ -3,7 +3,8 @@ const task = [{
     "owner": "Arne",
     "title": "",
     "describtion": "",
-    "category": "",
-    "position in category": "",
-
+    "position": {
+        "category": "",
+        "positionincategory":""
+    }
 }]
