@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+}
+
+.logo-infos {
+    width: 60px;
+    height: 70px;
+    object-fit: cover;
+    margin-left: 50px;
+    margin-top: 60px;
+}
+
+.Board-menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.task {
+    width: 13vw;
+    min-height: 70vh;
+    margin-top: 10px;
+    border-radius: 12px;
+    box-shadow: 15px 15px 70px grey;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.text-center {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.mdl-navigation__link:hover {
+    border-left: 5px solid black;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 1px black;
+}
