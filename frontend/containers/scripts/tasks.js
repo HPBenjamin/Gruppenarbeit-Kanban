@@ -1,8 +1,10 @@
-
-var showhide = 1;
 // let todo = [{}];
 let todo = JSON.parse(localStorage.getItem(`notes`));
 
+/** not needed 
+
+var showhide = 1;
+ 
 function showhidelsb() {
     var leftside = document.getElementById("leftsidebar").classList
     if (showhide == 1) {
@@ -16,6 +18,7 @@ function showhidelsb() {
         // console.log(showhide);
     }
 }
+ */
 
 /**  not needed
 function runScript(e) {

@@ -2,6 +2,11 @@ body {
     margin: 0px;
 }
 
+/** import css for draggable function */
+
+@import url('stefan.css');
+
+/** */
 .header {
     display: flex;
     flex-direction: row;
