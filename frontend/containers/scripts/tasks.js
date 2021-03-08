@@ -30,88 +30,79 @@ function runScript(e) {
     }
 } */
 
-function showcorretTitle(k) {
-    switch (k) {
-        case 0:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> Notizen</div>`
-            break;
-        case 1:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> Archivierte Notizen</h2>`
-            break;
-        case 2:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> gelöschte Notizen</h2>`
-            break;
-        default:
-            console.log(`error`);
-            break;
-    }
-}
-
-function loadnotes(k) {
-
-    // einmal leeren bevor neu befüllt wird
-    document.getElementById("notebox").innerHTML = ``
-    // console.log(k, todo[0].show)
-
-    //console.log(todo);
-
-    showcorretTitle(k);
-
-    if ( todo != null ) {
-        for (i = 0; i < todo.length; i++) {
-            if (todo[i].show == k) {
-                document.getElementById("notebox").innerHTML += `
-            <div class="note">
-            <b>${todo[i].title}</b>
-            ${todo[i].note}
-            <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-            <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
-            </div>`;
-            }
-        }
-    }
-}
-
 // submits the Note and loads again all notes
 
-function submit() {
-    
-    var title = document.getElementById("input1").value;
-    var note = document.getElementById("input2").value;
-    var show = 0;
-    var k = 0;
+function taskform(o) {
+    document.getElementById("taskform").innerHTML=`
+    <div class="form1">
+        <form class="form2">
+            <input id="input${o}" class="title" placeholder="Title">
+                <textarea id="input${o}" class="text" placeholder="Take a note.."></textarea>
+                <!-- If you want Tab as submit element onkeypress="return runScript(event)" -->
+                            </form>
+            <button class="submitbutton" onclick="submit(${o})">Ok</button>
+    </div>`
+}
+
+
+function submit(j) {
+
+    let title = document.getElementById(`input${j}`).value;
+    let note = document.getElementById(`input${j}`).value;
+    let category;
+    let show = 0;
+    let k = 0;
+
+// add the other categories
+
+    switch(j){
+        case 0: category = "backlog";
+        break;
+        case 1: category = "to_do"
+        break;
+        case 2: category = "in_progress"
+        break;
+        case 3: category = "testing"
+        break;
+        case 4: category = "done"
+        break;
+        default: category = "backlog";
+    }
 
     console.log(title, note);
 
     // getting the last element number in the array
     if ( Array.isArray(todo) && todo.length ) {
-        k = todo.length;
+            k = todo.length;
     }
 
     if (todo == null){
-        todo = [];
+            todo = [];
     }
 
     //console.log(k);
     // k++ is the new element`s number which is then filled with the object`s info
-    todo[k++] = { "title": `${title}`, "note": `${note}`, "show": `${show}` };
+    todo[k++] = {"title": `${title}`, "note": `${note}`, "category": `${category}`,  "show": `${show}` };
 
     localStorage.setItem(`notes`, JSON.stringify(todo));
 
     // console.log(title, note, show); -- still here for debug
 
+    document.getElementById("taskform").innerHTML=``;
     loadnotes(0);
+
 }
 
-// archivieren des todo Elements i = Todo Element Array Nr. 
+// archivieren des todo Elements i = Todo Element Array Nr.
 // k = welches Kategorie Notes / Archieve / Delelete gerade angezeigt wird
 
 function archieveNote(i, k) {
-    todo[i].show = 1;
+            todo[i].show = 1;
 
     var showlocal = JSON.parse(localStorage.getItem(`notes`));
     // console.log(showlocal[i]);
     showlocal[i].show = 1;
+    showlocal[i].category = "archieve";
     localStorage.setItem('notes', JSON.stringify(showlocal));
 
     loadnotes(k);
@@ -125,10 +116,11 @@ function deleteNote(i, k) {
     var deletelocal = JSON.parse(localStorage.getItem(`notes`));
     // console.log(deletelocal[i]);
     deletelocal[i].show = 2;
+    deletelocal[i].category = "delete";
     localStorage.setItem('notes', JSON.stringify(deletelocal));
 
-    if (k == 2) {
-        todo.splice(i, 1);
+    if (k == 3) {
+            todo.splice(i, 1);
 
         deletelocal = JSON.parse(localStorage.getItem(`notes`));
         // console.log(deletelocal[i]);

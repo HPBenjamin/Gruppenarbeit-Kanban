@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../../css/start.css" rel="stylesheet"></link>
-    <link href="../../css/stefan.css" rel="stylesheet"></link>
+    <link href="../../css/start.css" rel="stylesheet">
+    </link>
+    <link href="../../css/stefan.css" rel="stylesheet">
+    </link>
 
     <script src="../scripts/tasks.js"></script>
     <script src="../../shared/auth.js"></script>
 
     <!-- eingefügt von Stefan's Code -->
     <script src="../scripts/javascript.js"></script>
+    <script src="../scripts/show.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
@@ -20,97 +23,92 @@
 
 </header>
 
-<body onload="isloggedin(); loadnotes(0); init()">
+<body onload="isloggedin(); showcorretTitle(0); loadnotes(0); init()">
 
-    <div class="main">
-        <!-- 
-        <div  class="leftsidebar">
-            <button onclick="loadnotes(0)">Notes</button>
-            <button onclick="loadnotes(1)">Archieve</button>
-            <button onclick="loadnotes(2)">Trash</button>
-        </div>--> 
-
-        <div id="content" class="content">
-            <div class="form1">
-                <form class="form2">
-                    <input id="input1" class="title" placeholder="Title">
-                    <textarea id="input2" class="text" placeholder="Take a note.."></textarea> <!-- If you want Tab as submit element onkeypress="return runScript(event)" -->
-                </form>
-                <button class="submitbutton" onclick="submit()">Ok</button>
-            </div>
-            <div id="titlebeforenote" class="titlebeforenote"></div>
-            <div id="notebox" class="notebox"></div>
-        </div>
-
-
-    </div>
-
-     <!-- The drawer is always open in large screens. The header is always shown,
+    <!-- The drawer is always open in large screens. The header is always shown,
   even in small screens. -->
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
   mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                mdl-textfield--floating-label mdl-textfield--align-right">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-                <i class="material-icons">search</i>
-              </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                    </div>
                 </div>
             </div>
+        </header>
+        <div id="leftsidebar" class="mdl-layout__drawer">
+            <img class="logo-infos" src="../../assets/Kanban Gruppenarbeit/img/joinlogo.png">
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="app.html" >Board</button>
+                <a class="mdl-navigation__link" href="backlog.html" >Backlog</button>
+                <a class="mdl-navigation__link" href="archieve.html" >Archivierte</button>
+                <a class="mdl-navigation__link" href="trash.html" >Papierkorb</button>
+                <a class="mdl-navigation__link" href="datenschutz.html">Datenschutz</a>
+                <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
+                <a class="mdl-navigation__link" href="faq.html">FAQ</a>
+                <button onclick="logoutUser()">Logout</button>
+            </nav>
         </div>
-    </header>
-    <div id="leftsidebar" class="mdl-layout__drawer" >
-        <img class="logo-infos" src="../../assets/Kanban Gruppenarbeit/img/joinlogo.png">
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="board.html">Board</a>
-            <a class="mdl-navigation__link" href="backlog.html">Backlog</a>
-            <a class="mdl-navigation__link" href="addTask.html">Add Task</a>
-            <a class="mdl-navigation__link" href="Datenschutz.html">Datenschutz</a>
-            <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
-            <a class="mdl-navigation__link" href="#">Help</a>
-            <button onclick="logoutUser()">Logout</button>
-        </nav>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+
+                <div id="titlebeforenote" class="titlebeforenote"></div>
+                <!-- <div id="notebox" class="notebox"></div> -->
+                <!-- Your content goes here -->
+
+                <div id="board-menu" class="Board-menu">
+                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                        <div class="text-center">Backlog</div>
+                        <div id="backlog" class="task">
+                    
+                        </div>
+                        <button onclick="taskform(0)"></button>
+                        <div id="taskform"></div>
+                    </div>
+                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                        <div class="text-center">TO DO</div>
+                        <div id="to_do" class="task">
+                    
+                        </div>
+                        <button onclick="taskform(1)"></button>
+                        <div id="taskform"></div>
+                    </div>
+                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                        <div class="text-center">IN PROGRESS</div>
+                        <div  id="in_progress" class="task">
+                    
+                        </div>
+                        <button onclick="taskform(2)"></button>
+                        <div id="taskform"></div>
+                    </div>
+                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                        <div class="text-center">TESTING</div>
+                        <div  id="testing" class="task">
+                    
+                        </div>
+                        <button onclick="taskform(3)"></button>
+                        <div id="taskform"></div>
+                    </div>
+                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                        <div class="text-center">DONE</div>
+                        <div  id="done" class="task">
+                    
+                        </div>
+                        <button onclick="taskform(4)"></button>
+                        <div id="taskform"></div>
+                    </div>
+                    </div>
+
+            </div>
+        </main>
     </div>
-    <main class="mdl-layout__content">
-        <div class="page-content">
-            <!-- Your content goes here -->
-
-            <div class="Board-menu">
-                <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
-                    <div class="text-center">TO DO</div>
-                    <div class="task">
-                        <img id="one" class="profile-picture" ondragstart="startDragging()" draggable="true" src="img/Stefan.jpg">
-                    </div>
-                </div>
-                <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
-                    <div class="text-center">IN PROGRESS</div>
-                    <div class="task">
-
-                    </div>
-                </div>
-                <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
-                    <div class="text-center">TESTING</div>
-                    <div class="task">
-
-                    </div>
-                </div>
-                <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
-                    <div class="text-center">DONE</div>
-                    <div class="task">
-
-                    </div>
-                </div>
-
-
-            </div>
-
-        </div>
-    </main>
-</div>
 
 
 </body>

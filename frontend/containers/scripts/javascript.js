@@ -15,8 +15,12 @@ function startDragging(id) {
 }
 
 function drop() {
-    document.getElementById('one').innerHTML = '';
-    document.getElementById('one').innerHTML = [];
-    updateHTML();
+   // document.getElementById('one').innerHTML = '';
+   // document.getElementById('one').innerHTML = [];
+   // updateHTML();
+
+}
+
+function allowDrop(){
 
 }
