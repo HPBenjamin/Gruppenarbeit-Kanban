@@ -2,11 +2,63 @@ body {
     margin: 0px;
 }
 
+.login-page-bg {
+    background: linear-gradient( 24deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 0.8186624991793592) 35%, rgba(0, 212, 255, 1) 100%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {}
+
+.login-box-content {
+    background-color: white;
+    box-shadow: 9px 19px 27px rgb(0 0 0 / 40%);
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.name-field {
+    margin: 8px;
+    width: 350px;
+    height: 40px;
+    border: 1px solid lightgrey;
+}
+
+.pwd-field {
+    margin: 8px;
+    width: 350px;
+    height: 40px;
+    border: 1px solid lightgrey;
+}
+
+.btn-login {
+    width: 180px;
+    height: 40px;
+    border: 2px solid rgb(2, 2, 5);
+    border-radius: 4px;
+    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%);
+    color: white;
+    margin-top: 30px;
+}
+
+.mdl-layout__header {
+    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%);
+}
+
+
 /** import css for draggable function */
 
 @import url('stefan.css');
 
 /** */
+
 .header {
     display: flex;
     flex-direction: row;
@@ -27,7 +79,7 @@ body {
     align-items: center;
 }
 
-.leftsidebar > button{
+.leftsidebar>button {
     height: 42px;
     width: 84px;
     margin-left: 12px;
@@ -61,40 +113,40 @@ body {
     width: auto;
 }
 
-.form2{
+.form2 {
     display: flex;
     flex-direction: column;
 }
 
-.title{
+.title {
     min-height: 24px;
     margin-bottom: 4px;
 }
 
-.text{
+.text {
     margin-top: 4px;
     min-width: auto;
     min-height: 128px;
 }
 
-.submitbutton{
+.submitbutton {
     margin-top: 8px;
     height: 42px;
     width: auto;
 }
 
-.headerbuttontoogle{
+.headerbuttontoogle {
     margin-left: 12px;
     width: auto;
     height: 42px;
 }
 
-.titlebeforetask{
+.titlebeforetask {
     display: flex;
     margin-left: 72px;
 }
 
-.taskbox{
+.taskbox {
     display: flex;
     flex-direction: row;
     margin-left: 36px;
@@ -105,19 +157,35 @@ body {
     overflow-wrap: break-word;
 }
 
-.task{
+.task {
     display: flex;
     flex-direction: column;
     margin: 6px;
-    max-width: 360px;
+    max-width: 300px;
     height: max-content;
     padding: 8px;
-    background-color: yellow;
-    justify-content: center
-};
+    background-color: whitesmoke;
+    justify-content: center;
+}
 
-.deleteicon{
+.btn-login {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(131, 148, 148);
+    border: 2px solid rgb(2, 2, 5);
+    border-radius: 4px;
+    margin-left: 30px;
+}
+
+.deleteicon {
     display: flex;
     width: 48px;
     height: 48px;
+}
+
+.note {
+    border: 1px solid black;
+    border-radius: 4px;
+    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%);
+    padding: 4px;
 }

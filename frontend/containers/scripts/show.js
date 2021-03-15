@@ -23,14 +23,19 @@ function loadnotes(k) {
     showcorretTitle(k);
 
     switch (k) {
-        case 0: loadboard(k);
+        case 0:
+            loadboard(k);
             break;
-        case 1: loadbacklog(k);
+        case 1:
+            loadbacklog(k);
             break;
-        case 2: loadarchieve(k);
+        case 2:
+            loadarchieve(k);
             break;
-        case 3: loadtrash(k);
-        default: loadboard(k);
+        case 3:
+            loadtrash(k);
+        default:
+            loadboard(k);
     }
 }
 
@@ -42,7 +47,7 @@ function loadboard(k) {
     document.getElementById("in_progress").innerHTML = ``;
     document.getElementById("testing").innerHTML = ``;
     document.getElementById("done").innerHTML = ``
-    // console.log(k, todo[0].show)
+        // console.log(k, todo[0].show)
 
     //console.log(todo);
 
@@ -52,7 +57,7 @@ function loadboard(k) {
                 switch (todo[i].category) {
                     case "backlog":
                         document.getElementById("backlog").innerHTML += `
-                    <div class="note">
+                    <div ondragstart="startmove()" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -61,7 +66,7 @@ function loadboard(k) {
                         break;
                     case "to_do":
                         document.getElementById("to_do").innerHTML += `
-                    <div class="note">
+                    <div ondragstart="startmove()" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -70,7 +75,7 @@ function loadboard(k) {
                         break;
                     case "in_progress":
                         document.getElementById("in_progress").innerHTML += `
-                    <div class="note">
+                    <div ondragstart="startmove()" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -79,7 +84,7 @@ function loadboard(k) {
                         break;
                     case "testing":
                         document.getElementById("testing").innerHTML += `
-                    <div class="note">
+                    <div ondragstart="startmove()" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -88,14 +93,15 @@ function loadboard(k) {
                         break;
                     case "done":
                         document.getElementById("done").innerHTML += `
-                    <div class="note">
+                    <div ondragstart="startmove()" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
                     <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
                     </div>`;
                         break;
-                    default: 0;
+                    default:
+                        0;
                 }
 
             }
@@ -111,7 +117,7 @@ function loadbacklog(k) {
 
     if (todo != null) {
         for (i = 0; i < todo.length; i++) {
-            if (todo[i].show == 0) {  // k is 1 in this case so i had to change it here to 0
+            if (todo[i].show == 0) { // k is 1 in this case so i had to change it here to 0
                 switch (todo[i].category) {
                     case "backlog":
                         document.getElementById("backlog").innerHTML += `
@@ -130,7 +136,7 @@ function loadbacklog(k) {
 }
 
 
-function loadarchieve(k)  {
+function loadarchieve(k) {
 
     // einmal leeren bevor neu befüllt wird
     document.getElementById("archieve").innerHTML = ``;
@@ -155,7 +161,7 @@ function loadarchieve(k)  {
     }
 }
 
-function loadtrash(k)  {
+function loadtrash(k) {
 
     // einmal leeren bevor neu befüllt wird
     document.getElementById("delete").innerHTML = ``;
