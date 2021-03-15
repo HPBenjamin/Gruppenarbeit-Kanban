@@ -57,7 +57,7 @@ function loadboard(k) {
                 switch (todo[i].category) {
                     case "backlog":
                         document.getElementById("backlog").innerHTML += `
-                    <div ondragstart="startmove()" class="note">
+                    <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -66,7 +66,7 @@ function loadboard(k) {
                         break;
                     case "to_do":
                         document.getElementById("to_do").innerHTML += `
-                    <div ondragstart="startmove()" class="note">
+                    <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -75,7 +75,7 @@ function loadboard(k) {
                         break;
                     case "in_progress":
                         document.getElementById("in_progress").innerHTML += `
-                    <div ondragstart="startmove()" class="note">
+                    <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -84,7 +84,7 @@ function loadboard(k) {
                         break;
                     case "testing":
                         document.getElementById("testing").innerHTML += `
-                    <div ondragstart="startmove()" class="note">
+                    <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -93,7 +93,7 @@ function loadboard(k) {
                         break;
                     case "done":
                         document.getElementById("done").innerHTML += `
-                    <div ondragstart="startmove()" class="note">
+                    <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>

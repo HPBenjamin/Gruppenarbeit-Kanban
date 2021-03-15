@@ -33,7 +33,7 @@ function runScript(e) {
 // submits the Note and loads again all notes
 
 function taskform(o) {
-    document.getElementById("taskform").innerHTML=`
+    document.getElementById("taskform").innerHTML = `
     <div class="form1">
         <form class="form2">
             <input id="input${o}" class="title" placeholder="Title">
@@ -52,43 +52,52 @@ function submit(j) {
     let category;
     let show = 0;
     let k = 0;
+    let id;
 
-// add the other categories
+    // add the other categories
 
-    switch(j){
-        case 0: category = "backlog";
-        break;
-        case 1: category = "to_do"
-        break;
-        case 2: category = "in_progress"
-        break;
-        case 3: category = "testing"
-        break;
-        case 4: category = "done"
-        break;
-        default: category = "backlog";
+    switch (j) {
+        case 0:
+            category = "backlog";
+            break;
+        case 1:
+            category = "to_do"
+            break;
+        case 2:
+            category = "in_progress"
+            break;
+        case 3:
+            category = "testing"
+            break;
+        case 4:
+            category = "done"
+            break;
+        default:
+            category = "backlog";
     }
 
     console.log(title, note);
 
     // getting the last element number in the array
-    if ( Array.isArray(todo) && todo.length ) {
-            k = todo.length;
+    if (Array.isArray(todo) && todo.length) {
+        k = todo.length;
     }
 
-    if (todo == null){
-            todo = [];
+    id = k++;
+
+    if (todo == null) {
+        todo = [];
     }
 
     //console.log(k);
     // k++ is the new element`s number which is then filled with the object`s info
-    todo[k++] = {"title": `${title}`, "note": `${note}`, "category": `${category}`,  "show": `${show}` };
+    todo[id] = { "id": `${id}`, "title": `${title}`, "note": `${note}`, "category": `${category}`, "show": `${show}` };
 
     localStorage.setItem(`notes`, JSON.stringify(todo));
 
     // console.log(title, note, show); -- still here for debug
 
-    document.getElementById("taskform").innerHTML=``;
+    document.getElementById("taskform").innerHTML = ``;
     loadnotes(0);
 
 }
@@ -97,7 +106,7 @@ function submit(j) {
 // k = welches Kategorie Notes / Archieve / Delelete gerade angezeigt wird
 
 function archieveNote(i, k) {
-            todo[i].show = 1;
+    todo[i].show = 1;
 
     var showlocal = JSON.parse(localStorage.getItem(`notes`));
     // console.log(showlocal[i]);
@@ -120,7 +129,7 @@ function deleteNote(i, k) {
     localStorage.setItem('notes', JSON.stringify(deletelocal));
 
     if (k == 3) {
-            todo.splice(i, 1);
+        todo.splice(i, 1);
 
         deletelocal = JSON.parse(localStorage.getItem(`notes`));
         // console.log(deletelocal[i]);

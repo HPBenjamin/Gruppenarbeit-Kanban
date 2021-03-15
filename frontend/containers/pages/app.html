@@ -23,7 +23,7 @@
 
 </header>
 
-<body onload="isloggedin(); showcorretTitle(0); loadnotes(0); init()">
+<body onload="isloggedin(); showcorretTitle(0); loadnotes(0)">
 
     <!-- The drawer is always open in large screens. The header is always shown,
   even in small screens. -->
@@ -65,7 +65,7 @@
                 <!-- Your content goes here -->
 
                 <div id="board-menu" class="Board-menu">
-                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                    <div ondrop="moveto('backlog')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">Backlog</div>
                         <div id="backlog" class="task">
 
@@ -73,7 +73,7 @@
                         <button onclick="taskform(0)"></button>
                         <div id="taskform"></div>
                     </div>
-                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                    <div ondrop="moveto('to_do')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">TO DO</div>
                         <div id="to_do" class="task">
 
@@ -81,7 +81,7 @@
                         <button onclick="taskform(1)"></button>
                         <div id="taskform"></div>
                     </div>
-                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                    <div ondrop="moveto('in_progress')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">IN PROGRESS</div>
                         <div id="in_progress" class="task">
 
@@ -89,7 +89,7 @@
                         <button onclick="taskform(2)"></button>
                         <div id="taskform"></div>
                     </div>
-                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                    <div ondrop="moveto('testing')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">TESTING</div>
                         <div id="testing" class="task">
 
@@ -97,7 +97,7 @@
                         <button onclick="taskform(3)"></button>
                         <div id="taskform"></div>
                     </div>
-                    <div ondragover="allowDrop()" ondrop="drop()" class="task-container">
+                    <div ondrop="moveto('done')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">DONE</div>
                         <div id="done" class="task">
 
