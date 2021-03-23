@@ -16,7 +16,7 @@ function submit(j) {
     let createdbyuser = sessionStorage.getItem("activeUser");
     let assignedtouser = document.getElementById("inputassigenduser").value || "";
 
-    if (assignedtouser == ""){
+    if (assignedtouser == "") {
         assignedtouser = createdbyuser
     }
 
@@ -60,21 +60,28 @@ function submit(j) {
 
     //console.log(k);
     // k++ is the new element`s number which is then filled with the object`s info
-    todo[id] = {"id": `${id}`, 
-                "createdbyuser": `${createdbyuser}`,
-                "assignedtouser": `${assignedtouser}`,
-                "title": `${title}`,
-                "note": `${note}`,
-                "category": `${category}`,
-                "show": `${show}` };
+    todo[id] = {
+        "id": `${id}`,
+        "createdbyuser": `${createdbyuser}`,
+        "assignedtouser": `${assignedtouser}`,
+        "title": `${title}`,
+        "note": `${note}`,
+        "category": `${category}`,
+        "show": `${show}`
+    };
 
     localStorage.setItem(`notes`, JSON.stringify(todo));
 
     // console.log(title, note, show); -- still here for debug
 
     document.getElementById(`taskform${j}`).innerHTML = ``;
-    loadnotes(0);
 
+    if (j != 5) {
+        loadnotes(0);
+    }
+    else{
+        loadnotes(1);
+    }
 }
 
 // archivieren des todo Elements i = Todo Element Array Nr.
