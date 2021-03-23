@@ -6,16 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="../../css/start.css" rel="stylesheet">
-    </link>
-    <link href="../../css/stefan.css" rel="stylesheet">
-    </link>
-
+    
     <script src="../../tests/users.js"></script>
     <script src="../scripts/tasks.js"></script>
     <script src="../../shared/auth.js"></script>
 
     <script src="../scripts/form.js"></script>
-    <script src="../scripts/javascript.js"></script>
     <script src="../scripts/show.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -63,17 +59,17 @@
                 <div id="titlebeforenote" class="titlebeforenote"></div>
                 <!-- <div id="notebox" class="notebox"></div> -->
                 <!-- Your content goes here -->
-                <div class="text-center">Backlog</div>
+                <button id="taskformbutton5" onclick="taskform(5)"><img src="../../assets/icon plus.png"></button>
+                <div id='taskform5'></div>
                 <div class="backlogrowtitle">
                     <h3>Assigend to</h3>
                     <h3>Category</h3>
                     <h3>Detail</h3>
                 </div>
-                <div id="backlog" class="task">
+                <div id="backlog" class="taskbacklog">
 
                 </div>
-                <button onclick="taskform(5)"><img src="../../assets/icon plus.png"></button>
-                <div id='taskform5'></div>
+                
 
             </div>
         </main>

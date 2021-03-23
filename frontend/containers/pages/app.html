@@ -7,8 +7,6 @@
     <title>Document</title>
     <link href="../../css/start.css" rel="stylesheet">
     </link>
-    <link href="../../css/stefan.css" rel="stylesheet">
-    </link>
 
     <script src="../../tests/users.js"></script>
 
@@ -17,7 +15,7 @@
     <script src="../../shared/auth.js"></script>
 
     <!-- eingefügt von Stefan's Code -->
-    <script src="../scripts/javascript.js"></script>
+    <script src="../scripts/dragging.js"></script>
     <script src="../scripts/show.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -50,13 +48,13 @@
             <img class="logo-infos" src="../../assets/img/joinlogo.png">
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="app.html">Board</button>
-                <a class="mdl-navigation__link" href="backlog.html" >Backlog</button>
-                <a class="mdl-navigation__link" href="archieve.html" >Archivierte</button>
-                <a class="mdl-navigation__link" href="trash.html" >Papierkorb</button>
-                <a class="mdl-navigation__link" href="datenschutz.html">Datenschutz</a>
-                <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
-                <a class="mdl-navigation__link" href="faq.html">FAQ</a>
-                <button class="btn-login" onclick="logoutUser()">Logout</button>
+                    <a class="mdl-navigation__link" href="backlog.html">Backlog</button>
+                        <a class="mdl-navigation__link" href="archieve.html">Archivierte</button>
+                            <a class="mdl-navigation__link" href="trash.html">Papierkorb</button>
+                                <a class="mdl-navigation__link" href="datenschutz.html">Datenschutz</a>
+                                <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
+                                <a class="mdl-navigation__link" href="faq.html">FAQ</a>
+                                <button class="btn-login" onclick="logoutUser()">Logout</button>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -78,7 +76,7 @@
                         <div id="to_do" class="task">
 
                         </div>
-                        <button onclick="taskform(1)"><img src="../../assets/icon plus.png"></button>
+                        <button class="addtaskbutton" id="taskformbutton1" onclick="taskform(1)">add a task ...</button>
                         <div id="taskform1"></div>
                     </div>
                     <div ondrop="moveto('in_progress')" ondragover="allowDrop(event)" class="task-container">
@@ -86,7 +84,7 @@
                         <div id="in_progress" class="task">
 
                         </div>
-                        <button onclick="taskform(2)"><img src="../../assets/icon plus.png"></button>
+                        <button class="addtaskbutton" id="taskformbutton2" onclick="taskform(2)">add a task ...</button>
                         <div id="taskform2"></div>
                     </div>
                     <div ondrop="moveto('testing')" ondragover="allowDrop(event)" class="task-container">
@@ -94,7 +92,7 @@
                         <div id="testing" class="task">
 
                         </div>
-                        <button onclick="taskform(3)"><img src="../../assets/icon plus.png"></button>
+                        <button class="addtaskbutton" id="taskformbutton3" onclick="taskform(3)">add a task ...</button>
                         <div id="taskform3"></div>
                     </div>
                     <div ondrop="moveto('done')" ondragover="allowDrop(event)" class="task-container">
@@ -102,7 +100,7 @@
                         <div id="done" class="task">
 
                         </div>
-                        <button onclick="taskform(4)"><img src="../../assets/icon plus.png"></button>
+                        <button class="addtaskbutton" id="taskformbutton4" onclick="taskform(4)">add a task ...</button>
                         <div id="taskform4"></div>
                     </div>
                 </div>

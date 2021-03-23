@@ -4,10 +4,10 @@ const user = [{
     "pwd": "Arne"
 },{
     "id" : "1",
-    "name": "Stefan",
+    "name": "stefan@example.de",
     "pwd": "1212"
 },{
     "id" : "2",
-    "name": "Benjamin",
+    "name": "benjamin@example.de",
     "pwd": "1212",
 }]

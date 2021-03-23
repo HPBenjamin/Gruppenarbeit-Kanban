@@ -109,7 +109,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 8px;
-    width: auto;
+    width: 13vw;
 }
 
 .form2 {
@@ -163,9 +163,14 @@ body {
     max-width: 300px;
     height: max-content;
     padding: 8px;
-    background-color: whitesmoke;
+    /** background-color: whitesmoke; */
     justify-content: flex-start;
+    width: 13vw;
+    border-radius: 12px;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .btn-login {
     width: 150px;
@@ -182,14 +187,127 @@ body {
     height: 48px;
 }
 
+.archieveicon {
+    display: flex;
+    width: 48px;
+    height: 48px;
+}
+
 .note {
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
     border-radius: 4px;
-    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%);
     padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width: 12vw;
+    background: whitesmoke;
+}
+
+.notebacklog{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid whitesmoke;
+    margin-left: 24px;
+    margin-right: 24px;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background: whitesmoke;
+    justify-content: space-between;
+}
+
+.notearchieve{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid whitesmoke;
+    margin-left: 24px;
+    margin-right: 24px;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background: whitesmoke;
+    justify-content: space-between;
+}
+
+.notetrash{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid whitesmoke;
+    margin-left: 24px;
+    margin-right: 24px;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background: whitesmoke;
+    justify-content: space-between;
 }
 
 .backlogrowtitle{
     display: flex;
     flex-direction: row;
 }
+
+.logo-infos {
+    width: 60px;
+    height: 70px;
+    object-fit: cover;
+    margin-left: 50px;
+    margin-top: 60px;
+}
+
+.Board-menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 20px;
+    box-shadow: 15px 15px 70px grey;
+    height: max-content;
+    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%); 
+    border-radius: 12px;
+}
+
+.text-center {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.mdl-navigation__link:hover {
+    border-left: 5px solid black;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 1px black;
+}
+
+.addtaskbutton{
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: white;
+}
+
+.notefooteractions{
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    justify-content: flex-end;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+

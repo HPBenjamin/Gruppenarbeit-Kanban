@@ -1,17 +1,33 @@
 
-async function taskform(o) {
+function taskform(o) {
+
+    if (o != 5) {
+        for (let k = 1; k < 4; k++) {
+            document.getElementById(`taskform${k}`).innerHTML = ``
+        };
+    }
+
+    document.getElementById(`taskformbutton${o}`).style.display = "none";
+
     document.getElementById(`taskform${o}`).innerHTML = `
     <div class="form1">
         <form class="form2">
+            <button onclick="closeForm(${o})" > X </button>
             <input id="inputtitle${o}" class="title" placeholder="Title">
             <textarea id="inputdescription${o}" class="text" placeholder="Take a note.."></textarea>
             <div id="taskformmanipulationfield"></div>
-            <div id="assigneduser"></div>
+            <div id="assigneduser${o}"></div>
         </form>
         <button class="submitbutton" onclick="submit(${o})">Ok</button>
     </div>`
-    await taskformmanipultionforBacklog(o);
-    await assign();
+    assign(o);
+    taskformmanipultionforBacklog(o);
+}
+
+function closeForm(o) {
+    document.getElementById(`taskform${o}`).innerHTML = ``;
+    document.getElementById(`taskformbutton${o}`).style.display = "flex";
+
 }
 
 function taskformmanipultionforBacklog(o) {
@@ -29,13 +45,13 @@ function taskformmanipultionforBacklog(o) {
     }
 }
 
-function assign(){
-    document.getElementById("assigneduser").innerHTML = `
+function assign(o) {
+    document.getElementById(`assigneduser${o}`).innerHTML = `
         <input list="teammembers" id="inputassigenduser" placeholder="person">
 
         <datalist id="teammembers"></datalist>
         `;
-    for (let g = 0; g < user.length; g++){
+    for (let g = 0; g < user.length; g++) {
         document.getElementById("teammembers").innerHTML += `<option value=${user[g].name}>`
     }
 }

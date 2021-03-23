@@ -10,7 +10,7 @@ function showcorretTitle(k) {
             document.getElementById("titlebeforenote").innerHTML = `<h2> archivierte Aufgaben</h2>`
             break;
         case 3:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> gelöschte Notizen</h2>`
+            document.getElementById("titlebeforenote").innerHTML = `<h2> gelöschte Aufgaben</h2>`
             break;
         default:
             console.log(`error`);
@@ -47,7 +47,7 @@ function loadboard(k) {
     document.getElementById("in_progress").innerHTML = ``;
     document.getElementById("testing").innerHTML = ``;
     document.getElementById("done").innerHTML = ``
-        // console.log(k, todo[0].show)
+    // console.log(k, todo[0].show)
 
     //console.log(todo);
 
@@ -55,49 +55,48 @@ function loadboard(k) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == k) {
                 switch (todo[i].category) {
-                    /** case "backlog":
-                        document.getElementById("backlog").innerHTML += `
-                    <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
-                    <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
-                    </div>`;
-                        break; */
                     case "to_do":
                         document.getElementById("to_do").innerHTML += `
                     <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
+                    <p>${todo[i].note}</p>
+                    <div class="notefooteractions">
+                    <img class="archieveicon" src="../../assets/archieve.png" onclick="archieveNote(${i},${k})"/>
                     <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                    </div>
                     </div>`;
                         break;
                     case "in_progress":
                         document.getElementById("in_progress").innerHTML += `
                     <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
+                    <p>${todo[i].note}</p>
+                    <div class="notefooteractions">
+                    <img class="archieveicon" src="../../assets/archieve.png" onclick="archieveNote(${i},${k})"/>
                     <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                    </div>
                     </div>`;
                         break;
                     case "testing":
                         document.getElementById("testing").innerHTML += `
                     <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
+                    <p>${todo[i].note}</p>
+                    <div class="notefooteractions">
+                    <img class="archieveicon" src="../../assets/archieve.png" onclick="archieveNote(${i},${k})"/>
                     <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                    </div>
                     </div>`;
                         break;
                     case "done":
                         document.getElementById("done").innerHTML += `
                     <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
+                    <p>${todo[i].note}</p>
+                    <div class="notefooteractions">
+                    <img class="archieveicon" src="../../assets/archieve.png" onclick="archieveNote(${i},${k})"/>
                     <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                    </div>
                     </div>`;
                         break;
                     default:
@@ -119,27 +118,13 @@ function loadbacklog(k) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == 0) { // k is 1 in this case so i had to change it here to 0
                 document.getElementById("backlog").innerHTML += `
-                    <div class="note">
-                    <div>${todo[i].assignedtouser}</div>
-                    <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                    <div class="notebacklog">
+                        <div>${todo[i].assignedtouser}</div>
+                        <b>${todo[i].title}</b>
+                        <p>${todo[i].note}</p>
+                        <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
+                        <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
-                
-                /** switch (todo[i].category) {
-                    case "backlog":
-                    document.getElementById("backlog").innerHTML += `
-                    <div class="note">
-                    <div>${todo[i].assignedtouser}</div>
-                    <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
-                    </div>`;
-                        break;
-
-                } */
             }
         }
     }
@@ -154,22 +139,19 @@ function loadarchieve(k) {
     if (todo != null) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == 1) {
-                switch (todo[i].category) {
-                    case "archieve":
-                        document.getElementById("archieve").innerHTML += `
-                    <div class="note">
-                    <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button onclick="backtoBacklog(${i},${k})">Backlog</button>
-                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                document.getElementById("archieve").innerHTML += `
+                    <div class="notearchieve">
+                    <div>${todo[i].assignedtouser}</div>
+                        <b>${todo[i].title}</b>
+                        <p>${todo[i].note}</p>
+                        <button onclick="backtoBacklog(${i},${k})">Backlog</button>
+                        <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
-                        break;
-
-                }
             }
         }
     }
 }
+
 
 function loadtrash(k) {
 
@@ -179,18 +161,13 @@ function loadtrash(k) {
     if (todo != null) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == 2) {
-                switch (todo[i].category) {
-                    case "delete":
-                        document.getElementById("delete").innerHTML += `
-                    <div class="note">
+                document.getElementById("delete").innerHTML += `
+                    <div class="notetrash">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button onclick="backtoBacklog(${i},${k})" >Backlog</button>
                     <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
-                        break;
-
-                }
             }
         }
     }
