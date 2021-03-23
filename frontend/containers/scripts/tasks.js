@@ -1,58 +1,65 @@
-// let todo = [{}];
+
 let todo = JSON.parse(localStorage.getItem(`notes`));
 
-/** not needed 
+// submits the note and loads again all notes
 
-var showhide = 1;
- 
-function showhidelsb() {
-    var leftside = document.getElementById("leftsidebar").classList
-    if (showhide == 1) {
-        leftside.add("d-none");
-        showhide = 0;
-        // console.log(showhide);
-    }
-    else {
-        leftside.remove("d-none");
-        showhide = 1;
-        // console.log(showhide);
-    }
-}
- */
-
-/**  not needed
-function runScript(e) {
-    //See notes about 'which' and 'key'
-    if (e.keyCode == 13) {
-
-        submit();
-        return false;
-    }
-} */
-
-// submits the Note and loads again all notes
-
-function taskform(o) {
-    document.getElementById("taskform").innerHTML = `
+async function taskform(o) {
+    document.getElementById(`taskform${o}`).innerHTML = `
     <div class="form1">
         <form class="form2">
-            <input id="input${o}" class="title" placeholder="Title">
-                <textarea id="input${o}" class="text" placeholder="Take a note.."></textarea>
-                <!-- If you want Tab as submit element onkeypress="return runScript(event)" -->
-                            </form>
-            <button class="submitbutton" onclick="submit(${o})">Ok</button>
+            <input id="inputtitle${o}" class="title" placeholder="Title">
+            <textarea id="inputdescription${o}" class="text" placeholder="Take a note.."></textarea>
+            <div id="taskformmanipulationfield"></div>
+            <div id="assigneduser"></div>
+        </form>
+        <button class="submitbutton" onclick="submit(${o})">Ok</button>
     </div>`
+    await taskformmanipultionforBacklog(o);
+    await assign();
 }
 
+function taskformmanipultionforBacklog(o) {
+    if (o == 5) {
+        document.getElementById("taskformmanipulationfield").innerHTML = `
+        <input list="possiblecategories" id="inputcategory" placeholder="category pls">
+
+        <datalist id="possiblecategories">
+            <option value="to_do">
+            <option value="in_progress">
+            <option value="testing">
+            <option value="done">
+        </datalist>
+        `;
+    }
+}
+
+function assign(){
+    document.getElementById("assigneduser").innerHTML = `
+        <input list="teammembers" id="inputassigenduser" placeholder="person">
+
+        <datalist id="teammembers"></datalist>
+        `;
+    for (let g = 0; g < user.length; g++){
+        document.getElementById("teammembers").innerHTML += `<option value=${user[g].name}>`
+    }
+}
 
 function submit(j) {
 
-    let title = document.getElementById(`input${j}`).value;
-    let note = document.getElementById(`input${j}`).value;
+    let title = document.getElementById(`inputtitle${j}`).value;
+    let note = document.getElementById(`inputdescription${j}`).value;
     let category;
     let show = 0;
     let k = 0;
     let id;
+    let createdbyuser = sessionStorage.getItem("activeUser");
+    let assignedtouser = document.getElementById("inputassigenduser").value || "";
+
+    if (assignedtouser == ""){
+        assignedtouser = createdbyuser
+    }
+
+    
 
     // add the other categories
 
@@ -72,6 +79,9 @@ function submit(j) {
         case 4:
             category = "done"
             break;
+        case 5:
+            category = document.getElementById(`inputcategory`).value
+            break
         default:
             category = "backlog";
     }
@@ -91,13 +101,19 @@ function submit(j) {
 
     //console.log(k);
     // k++ is the new element`s number which is then filled with the object`s info
-    todo[id] = { "id": `${id}`, "title": `${title}`, "note": `${note}`, "category": `${category}`, "show": `${show}` };
+    todo[id] = {"id": `${id}`, 
+                "createdbyuser": `${createdbyuser}`,
+                "assignedtouser": `${assignedtouser}`,
+                "title": `${title}`,
+                "note": `${note}`,
+                "category": `${category}`,
+                "show": `${show}` };
 
     localStorage.setItem(`notes`, JSON.stringify(todo));
 
     // console.log(title, note, show); -- still here for debug
 
-    document.getElementById("taskform").innerHTML = ``;
+    document.getElementById(`taskform${j}`).innerHTML = ``;
     loadnotes(0);
 
 }
@@ -116,6 +132,20 @@ function archieveNote(i, k) {
 
     loadnotes(k);
 };
+
+// back to backlog
+function backtoBacklog(i, k) {
+    todo[i].show = 0;
+
+    var showlocal = JSON.parse(localStorage.getItem(`notes`));
+    // console.log(showlocal[i]);
+    showlocal[i].show = 0;
+    showlocal[i].category = "backlog";
+    localStorage.setItem('notes', JSON.stringify(showlocal));
+
+    loadnotes(k);
+};
+
 
 // "soft" löschen bis k = Delete Kategorie dann endgültiges löschen!
 
@@ -139,3 +169,4 @@ function deleteNote(i, k) {
 
     loadnotes(k);
 };
+

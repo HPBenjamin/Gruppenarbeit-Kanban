@@ -29,7 +29,6 @@ function generateTodoHTML(element) {
 
 function startDragging(id) {
     currentDraggedElement = id;
-
 }
 
 function allowDrop(ev) {
@@ -38,6 +37,15 @@ function allowDrop(ev) {
 
 function moveto(category) {
     todo[currentDraggedElement]['category'] = category;
+    
+    let change = JSON.parse(localStorage.getItem(`notes`));
+    // console.log(showlocal[i]);
+    // change[currentDraggingElement].show = 0;
+    console.log();
+    change[currentDraggedElement].category = category;
+
+    localStorage.setItem('notes', JSON.stringify(change));
+
     loadboard(0);
 }
 

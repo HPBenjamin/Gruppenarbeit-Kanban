@@ -42,7 +42,7 @@ function loadnotes(k) {
 function loadboard(k) {
 
     // einmal leeren bevor neu befüllt wird
-    document.getElementById("backlog").innerHTML = ``;
+    // document.getElementById("backlog").innerHTML = ``;
     document.getElementById("to_do").innerHTML = ``
     document.getElementById("in_progress").innerHTML = ``;
     document.getElementById("testing").innerHTML = ``;
@@ -55,7 +55,7 @@ function loadboard(k) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == k) {
                 switch (todo[i].category) {
-                    case "backlog":
+                    /** case "backlog":
                         document.getElementById("backlog").innerHTML += `
                     <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
@@ -63,14 +63,14 @@ function loadboard(k) {
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
                     <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
                     </div>`;
-                        break;
+                        break; */
                     case "to_do":
                         document.getElementById("to_do").innerHTML += `
                     <div draggable="true" ondragstart="startDragging(${todo[i].id})" class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
                         break;
                     case "in_progress":
@@ -79,7 +79,7 @@ function loadboard(k) {
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
                         break;
                     case "testing":
@@ -88,7 +88,7 @@ function loadboard(k) {
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
                         break;
                     case "done":
@@ -97,7 +97,7 @@ function loadboard(k) {
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
                         break;
                     default:
@@ -118,10 +118,20 @@ function loadbacklog(k) {
     if (todo != null) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == 0) { // k is 1 in this case so i had to change it here to 0
-                switch (todo[i].category) {
-                    case "backlog":
-                        document.getElementById("backlog").innerHTML += `
+                document.getElementById("backlog").innerHTML += `
                     <div class="note">
+                    <div>${todo[i].assignedtouser}</div>
+                    <b>${todo[i].title}</b>
+                    ${todo[i].note}
+                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
+                    </div>`;
+                
+                /** switch (todo[i].category) {
+                    case "backlog":
+                    document.getElementById("backlog").innerHTML += `
+                    <div class="note">
+                    <div>${todo[i].assignedtouser}</div>
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
                     <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
@@ -129,7 +139,7 @@ function loadbacklog(k) {
                     </div>`;
                         break;
 
-                }
+                } */
             }
         }
     }
@@ -150,8 +160,8 @@ function loadarchieve(k) {
                     <div class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
+                    <button onclick="backtoBacklog(${i},${k})">Backlog</button>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
                         break;
 
@@ -175,8 +185,8 @@ function loadtrash(k) {
                     <div class="note">
                     <b>${todo[i].title}</b>
                     ${todo[i].note}
-                    <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                    <div class="deleteicon"><img src="trash-icon.png" alt="delete" onclick="deleteNote(${i},${k})"/></div>
+                    <button onclick="backtoBacklog(${i},${k})" >Backlog</button>
+                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
                     </div>`;
                         break;
 
@@ -185,3 +195,4 @@ function loadtrash(k) {
         }
     }
 }
+

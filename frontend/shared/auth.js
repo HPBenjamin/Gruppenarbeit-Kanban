@@ -25,7 +25,8 @@ function checkUser(event, Name, Pwd) {
         for (let i = 0; i < user.length; i++) {
             console.log(i);
             if ( (user[i].name == Name ) && (user[i].pwd == Pwd) ) {
-                const activeUser = user[i].id
+                // const activeUser = user[i].id
+                const activeUser = { "id":user[i].id , "name": user[i].name } 
                 loginUser(activeUser);
                 break;  
             }

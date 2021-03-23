@@ -10,6 +10,9 @@
     <link href="../../css/stefan.css" rel="stylesheet">
     </link>
 
+    <script src="../../tests/users.js"></script>
+
+    <script src="../scripts/form.js"></script>
     <script src="../scripts/tasks.js"></script>
     <script src="../../shared/auth.js"></script>
 
@@ -44,11 +47,10 @@
             </div>
         </header>
         <div id="leftsidebar" class="mdl-layout__drawer">
-            <img class="logo-infos" src="../../assets/Kanban Gruppenarbeit/img/joinlogo.png">
+            <img class="logo-infos" src="../../assets/img/joinlogo.png">
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="app.html">Board</button>
                 <a class="mdl-navigation__link" href="backlog.html" >Backlog</button>
-                <a class="mdl-navigation__link" href="#" >Add New Note</button>
                 <a class="mdl-navigation__link" href="archieve.html" >Archivierte</button>
                 <a class="mdl-navigation__link" href="trash.html" >Papierkorb</button>
                 <a class="mdl-navigation__link" href="datenschutz.html">Datenschutz</a>
@@ -65,45 +67,43 @@
                 <!-- Your content goes here -->
 
                 <div id="board-menu" class="Board-menu">
-                    <div ondrop="moveto('backlog')" ondragover="allowDrop(event)" class="task-container">
+                    <!-- <div ondrop="moveto('backlog')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">Backlog</div>
-                        <div id="backlog" class="task">
-
-                        </div>
-                        <button onclick="taskform(0)"></button>
-                        <div id="taskform"></div>
-                    </div>
+                        <div id="backlog" class="task"></div>
+                        <button onclick="taskform(0)"><img src="../../assets/icon plus.png"></button>
+                        <div id="taskform0"></div>
+                    </div> -->
                     <div ondrop="moveto('to_do')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">TO DO</div>
                         <div id="to_do" class="task">
 
                         </div>
-                        <button onclick="taskform(1)"></button>
-                        <div id="taskform"></div>
+                        <button onclick="taskform(1)"><img src="../../assets/icon plus.png"></button>
+                        <div id="taskform1"></div>
                     </div>
                     <div ondrop="moveto('in_progress')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">IN PROGRESS</div>
                         <div id="in_progress" class="task">
 
                         </div>
-                        <button onclick="taskform(2)"></button>
-                        <div id="taskform"></div>
+                        <button onclick="taskform(2)"><img src="../../assets/icon plus.png"></button>
+                        <div id="taskform2"></div>
                     </div>
                     <div ondrop="moveto('testing')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">TESTING</div>
                         <div id="testing" class="task">
 
                         </div>
-                        <button onclick="taskform(3)"></button>
-                        <div id="taskform"></div>
+                        <button onclick="taskform(3)"><img src="../../assets/icon plus.png"></button>
+                        <div id="taskform3"></div>
                     </div>
                     <div ondrop="moveto('done')" ondragover="allowDrop(event)" class="task-container">
                         <div class="text-center">DONE</div>
                         <div id="done" class="task">
 
                         </div>
-                        <button onclick="taskform(4)"></button>
-                        <div id="taskform"></div>
+                        <button onclick="taskform(4)"><img src="../../assets/icon plus.png"></button>
+                        <div id="taskform4"></div>
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 const user = [{
-    "id" : "0",
-    "name": "Arne",
+    "id" : 0,
+    "name": "arne@example.de",
     "pwd": "Arne"
 },{
     "id" : "1",

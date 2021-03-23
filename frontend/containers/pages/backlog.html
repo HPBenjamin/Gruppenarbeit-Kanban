@@ -10,10 +10,11 @@
     <link href="../../css/stefan.css" rel="stylesheet">
     </link>
 
+    <script src="../../tests/users.js"></script>
     <script src="../scripts/tasks.js"></script>
     <script src="../../shared/auth.js"></script>
 
-    <!-- eingefügt von Stefan's Code -->
+    <script src="../scripts/form.js"></script>
     <script src="../scripts/javascript.js"></script>
     <script src="../scripts/show.js"></script>
 
@@ -23,7 +24,7 @@
 
 </header>
 
-<body onload="isloggedin(); showcorretTitle(1); loadnotes(1); init()">
+<body onload="isloggedin(); showcorretTitle(1); loadnotes(1)">
 
     <!-- The drawer is always open in large screens. The header is always shown,
   even in small screens. -->
@@ -44,7 +45,7 @@
             </div>
         </header>
         <div id="leftsidebar" class="mdl-layout__drawer">
-            <img class="logo-infos" src="../../assets/Kanban Gruppenarbeit/img/joinlogo.png">
+            <img class="logo-infos" src="../../assets/img/joinlogo.png">
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="app.html">Board</button>
                 <a class="mdl-navigation__link" href="backlog.html" >Backlog</button>
@@ -63,11 +64,16 @@
                 <!-- <div id="notebox" class="notebox"></div> -->
                 <!-- Your content goes here -->
                 <div class="text-center">Backlog</div>
+                <div class="backlogrowtitle">
+                    <h3>Assigend to</h3>
+                    <h3>Category</h3>
+                    <h3>Detail</h3>
+                </div>
                 <div id="backlog" class="task">
 
                 </div>
-                <button onclick="taskform(0)"></button>
-                <div id="taskform"></div>
+                <button onclick="taskform(5)"><img src="../../assets/icon plus.png"></button>
+                <div id='taskform5'></div>
 
             </div>
         </main>

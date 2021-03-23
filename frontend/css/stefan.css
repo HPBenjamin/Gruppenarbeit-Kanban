@@ -20,7 +20,7 @@
 
 .task {
     width: 13vw;
-    min-height: 70vh;
+    /** min-height: 70vh; */
     margin-top: 10px;
     border-radius: 12px;
     box-shadow: 15px 15px 70px grey;

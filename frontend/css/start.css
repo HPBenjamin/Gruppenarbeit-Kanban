@@ -104,11 +104,10 @@ body {
 }
 
 .form1 {
-    margin-left: 72px;
-    margin-top: 72px;
+    /** margin-left: 72px;
+    margin-top: 72px; */
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 8px;
     width: auto;
 }
@@ -165,7 +164,7 @@ body {
     height: max-content;
     padding: 8px;
     background-color: whitesmoke;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .btn-login {
@@ -188,4 +187,9 @@ body {
     border-radius: 4px;
     background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%);
     padding: 4px;
+}
+
+.backlogrowtitle{
+    display: flex;
+    flex-direction: row;
 }
