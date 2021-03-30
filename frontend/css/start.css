@@ -11,8 +11,6 @@ body {
     align-items: center;
 }
 
-.login-box {}
-
 .login-box-content {
     background-color: white;
     box-shadow: 9px 19px 27px rgb(0 0 0 / 40%);
@@ -49,7 +47,23 @@ body {
 }
 
 .mdl-layout__header {
-    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%);
+    background: linear-gradient(20deg, rgb(59, 68, 75) 0%, rgba(20, 72, 102, 0.8186624991793592) 10%, rgba(5, 84, 177, 1) 40%, rgba(3, 0, 255, 1) 100%);
+}
+
+.impressum-box-positioning {
+    padding: 16px;
+}
+
+.Datenschutz-box-positining {
+    padding: 16px;
+}
+
+.FAQ-box-positining {
+    padding: 16px;
+}
+
+.Backlog-box-positining {
+    padding: 16px;
 }
 
 
@@ -171,7 +185,6 @@ body {
     align-items: center;
 }
 
-
 .btn-login {
     width: 150px;
     height: 40px;
@@ -179,22 +192,25 @@ body {
     border: 2px solid rgb(2, 2, 5);
     border-radius: 4px;
     margin-left: 30px;
+    cursor: pointer;
 }
 
 .deleteicon {
     display: flex;
     width: 48px;
     height: 48px;
+    cursor: pointer;
 }
 
 .archieveicon {
     display: flex;
     width: 48px;
     height: 48px;
+    cursor: pointer;
 }
 
 .note {
-    border: 1px solid whitesmoke;
+    border: 1px solid gray;
     border-radius: 4px;
     padding: 4px;
     margin-top: 4px;
@@ -203,7 +219,7 @@ body {
     background: whitesmoke;
 }
 
-.notebacklog{
+.notebacklog {
     display: flex;
     flex-direction: row;
     border: 1px solid whitesmoke;
@@ -217,7 +233,7 @@ body {
     justify-content: space-between;
 }
 
-.notearchieve{
+.notearchieve {
     display: flex;
     flex-direction: row;
     border: 1px solid whitesmoke;
@@ -231,7 +247,7 @@ body {
     justify-content: space-between;
 }
 
-.notetrash{
+.notetrash {
     display: flex;
     flex-direction: row;
     border: 1px solid whitesmoke;
@@ -245,7 +261,7 @@ body {
     justify-content: space-between;
 }
 
-.backlogrowtitle{
+.backlogrowtitle {
     display: flex;
     flex-direction: row;
 }
@@ -270,8 +286,8 @@ body {
     margin-right: 20px;
     box-shadow: 15px 15px 70px grey;
     height: max-content;
-    background: linear-gradient(24deg, rgba(37, 40, 42, 1) 0%, rgba(24, 72, 102, 0.8186624991793592) 40%, rgba(5, 84, 177, 1) 65%, rgba(3, 0, 255, 1) 100%); 
     border-radius: 12px;
+    background: #FAF6FC;
 }
 
 .text-center {
@@ -293,14 +309,14 @@ body {
     border: solid 1px black;
 }
 
-.addtaskbutton{
+.addtaskbutton {
     background: none;
     border: none;
     font-size: 14px;
     color: white;
 }
 
-.notefooteractions{
+.notefooteractions {
     display: flex;
     flex-direction: row;
     height: max-content;
@@ -311,3 +327,16 @@ body {
     padding-right: 8px;
 }
 
+.Links-login {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    margin-bottom: 4px;
+}
+
+.link-design-login {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin-right: 10px;
+}
