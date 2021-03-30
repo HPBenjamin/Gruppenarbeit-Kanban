@@ -66,6 +66,10 @@ body {
     padding: 16px;
 }
 
+.margin-left {
+    margin-left: 12px;
+}
+
 
 /** import css for draggable function */
 

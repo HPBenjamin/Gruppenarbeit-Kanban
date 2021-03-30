@@ -1,16 +1,16 @@
 function showcorretTitle(k) {
     switch (k) {
         case 0:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> Kanban</div>`
+            document.getElementById("titlebeforenote").innerHTML = `<h2 class="margin-left"> Kanban</div>`
             break;
         case 1:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> Backlog </h2>`
+            document.getElementById("titlebeforenote").innerHTML = `<h2 class="margin-left"> Backlog </h2>`
             break;
         case 2:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> archivierte Aufgaben</h2>`
+            document.getElementById("titlebeforenote").innerHTML = `<h2 class="margin-left"> Archivierte Aufgaben</h2>`
             break;
         case 3:
-            document.getElementById("titlebeforenote").innerHTML = `<h2> gelöschte Aufgaben</h2>`
+            document.getElementById("titlebeforenote").innerHTML = `<h2 class="margin-left"> Gelöschte Aufgaben</h2>`
             break;
         default:
             console.log(`error`);
@@ -47,7 +47,7 @@ function loadboard(k) {
     document.getElementById("in_progress").innerHTML = ``;
     document.getElementById("testing").innerHTML = ``;
     document.getElementById("done").innerHTML = ``
-    // console.log(k, todo[0].show)
+        // console.log(k, todo[0].show)
 
     //console.log(todo);
 
@@ -172,4 +172,3 @@ function loadtrash(k) {
         }
     }
 }
-
