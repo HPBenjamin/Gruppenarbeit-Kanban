@@ -135,7 +135,7 @@ body {
     flex-direction: column;
 }
 
-.form2 input{
+.form2 input {
     margin-top: 8px;
     margin-bottom: 8px;
 }
@@ -200,8 +200,13 @@ body {
     background-color: rgb(131, 148, 148);
     border: 2px solid rgb(2, 2, 5);
     border-radius: 4px;
-    margin-left: 30px;
+    margin-left: 110px;
     cursor: pointer;
+}
+
+.registrierung-infos {
+    margin-top: 10px;
+    margin-right: 30px;
 }
 
 .deleteicon {
@@ -357,7 +362,7 @@ body {
     width: 80vw;
 }
 
-.cell{
+.cell {
     align-items: center;
     text-align: center;
 }
