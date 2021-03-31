@@ -14,20 +14,18 @@
 
 </header>
 
-<body onload="userloading()">
+<body>
     <div class="login-page-bg">
         <div class="login-box">
             <div class="login-box-content">
-                <h2>Anmeldung</h2>
-                <form onsubmit="checkUser(event, Name, Pwd )">
+                <h2>Registrierung</h2>
+                <form onsubmit="regisUser(event, Name, Pwd )">
                     <input required class="name-field" id="nameInput" type="email" placeholder="E-Mail"
                         onchange="changedName()" />
                     <input required class="pwd-field" id="pwdInput" type="password" placeholder="Passwort"
                         onchange="changedPwd()" />
-                    <button class="btn-login">Login</button>
+                    <button class="btn-login">Registrierung</button>
                 </form>
-                <br>
-                <a href="registration.html">Registrierung</a>
             </div>
         </div>
 

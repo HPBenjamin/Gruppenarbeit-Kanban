@@ -1,11 +1,16 @@
-// setURL('http://developerakademie.com/smallest_backend_ever');
+let Name = "";
+let Pwd = "";
+let User = JSON.parse(localStorage.getItem("user")) || [];
+
+function userloading() {
+    if (!localStorage.getItem("user")){
+        localStorage.setItem("user", JSON.stringify(user));
+    }
+}
 
 function show() {
     console.log(user);
 }
-
-let Name = "";
-let Pwd = "";
 
 function changedName() {
     Name = document.getElementById("nameInput").value;
@@ -17,19 +22,15 @@ function changedPwd() {
 
 function checkUser(event, Name, Pwd) {
     event.preventDefault();
-
-    if (Name === "" || Pwd === "") {
-        alert("Wtf");
-    }
-    else {
-        for (let i = 0; i < user.length; i++) {
-            console.log(i);
-            if ( (user[i].name == Name ) && (user[i].pwd == Pwd) ) {
-                // const activeUser = user[i].id
-                const activeUser = { "id":user[i].id , "name": user[i].name } 
-                loginUser(activeUser);
-                break;  
-            }
+    User = JSON.parse(localStorage.getItem("user"));
+    console.log(User);
+    for (let i = 0; i < User.length; i++) {
+        console.log(i);
+        if ((User[i].name == Name) && (User[i].pwd == Pwd)) {
+            // const activeUser = user[i].id
+            const activeUser = { "id": User[i].id, "name": User[i].name }
+            loginUser(activeUser);
+            break;
         }
     }
 }
@@ -55,4 +56,12 @@ function isloggedin() {
     }
 }
 
-
+function regisUser(event, Name, Pwd) {
+    event.preventDefault();
+    let oldUser = JSON.parse(localStorage.getItem("user"));
+    oldUser.push({ "id": (User.length), "name": `${Name}`, "pwd": `${Pwd}` });
+    console.log(oldUser);
+    let newUser = oldUser
+    localStorage.setItem("user", JSON.stringify(newUser));
+    window.location.assign("http://127.0.0.1:5500/frontend/index.html");
+}

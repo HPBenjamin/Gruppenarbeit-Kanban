@@ -12,6 +12,9 @@ function showcorretTitle(k) {
         case 3:
             document.getElementById("titlebeforenote").innerHTML = `<h2 class="margin-left"> Gelöschte Aufgaben</h2>`
             break;
+        case 4:
+            document.getElementById("titlebeforenote").innerHTML = `<h2 class="margin-left">Füge eine neue Aufgabe hinzu</h2>`
+            break;
         default:
             console.log(`error`);
             break;
@@ -35,7 +38,7 @@ function loadnotes(k) {
         case 3:
             loadtrash(k);
         default:
-            loadboard(k);
+            console.log("default");
     }
 }
 
@@ -47,7 +50,7 @@ function loadboard(k) {
     document.getElementById("in_progress").innerHTML = ``;
     document.getElementById("testing").innerHTML = ``;
     document.getElementById("done").innerHTML = ``
-        // console.log(k, todo[0].show)
+    // console.log(k, todo[0].show)
 
     //console.log(todo);
 
@@ -112,19 +115,20 @@ function loadboard(k) {
 function loadbacklog(k) {
 
     // einmal leeren bevor neu befüllt wird
-    document.getElementById("backlog").innerHTML = ``;
+    document.getElementById("spalte").innerHTML = ``;
 
     if (todo != null) {
         for (i = 0; i < todo.length; i++) {
-            if (todo[i].show == 0) { // k is 1 in this case so i had to change it here to 0
-                document.getElementById("backlog").innerHTML += `
-                    <div class="notebacklog">
-                        <div>${todo[i].assignedtouser}</div>
-                        <b>${todo[i].title}</b>
-                        <p>${todo[i].note}</p>
-                        <button class="archievedeletebutton" onclick="archieveNote(${i},${k})" >Archieve</button>
-                        <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
-                    </div>`;
+            if (todo[i].show == 0) {
+                document.getElementById("spalte").innerHTML += `
+                <tr id="notespalte" class="spalte">
+                    <td class="cell">${todo[i].assignedtouser}</td>
+                    <td class="cell"><b>${todo[i].title}</b></td>
+                    <td class="cell"><p>${todo[i].note}</p></td>
+                    <td class="cell"><button class="archievedeletebutton" onclick="archieveNote(${i},${k})">Archieve</button></td>
+                    <td class="cell"><img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/></td>
+                </tr>
+                `
             }
         }
     }
@@ -140,13 +144,15 @@ function loadarchieve(k) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == 1) {
                 document.getElementById("archieve").innerHTML += `
-                    <div class="notearchieve">
-                    <div>${todo[i].assignedtouser}</div>
-                        <b>${todo[i].title}</b>
-                        <p>${todo[i].note}</p>
-                        <button onclick="backtoBacklog(${i},${k})">Backlog</button>
-                        <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
-                    </div>`;
+                    <tr id="notespalte" class="spalte">
+                    <td class="cell">${todo[i].assignedtouser}</td>
+                    <td class="cell"><b>${todo[i].title}</b></td>
+                    <td class="cell"><p>${todo[i].note}</p></td>
+                    <td class="cell"><button onclick="backtoBacklog(${i},${k})">Backlog</button></td>
+                    <td class="cell"><img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/></td>
+                </tr>
+
+                    `;
             }
         }
     }
@@ -162,12 +168,15 @@ function loadtrash(k) {
         for (i = 0; i < todo.length; i++) {
             if (todo[i].show == 2) {
                 document.getElementById("delete").innerHTML += `
-                    <div class="notetrash">
-                    <b>${todo[i].title}</b>
-                    ${todo[i].note}
-                    <button onclick="backtoBacklog(${i},${k})" >Backlog</button>
-                    <img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/>
-                    </div>`;
+                <tr id="notespalte" class="spalte">
+                <td class="cell">${todo[i].assignedtouser}</td>
+                <td class="cell"><b>${todo[i].title}</b></td>
+                <td class="cell"><p>${todo[i].note}</p></td>
+                <td class="cell"><button onclick="backtoBacklog(${i},${k})">Backlog</button></td>
+                <td class="cell"><img class="deleteicon" src="../../assets/delete.png" alt="delete" onclick="deleteNote(${i},${k})"/></td>
+            </tr>`;
+
+
             }
         }
     }

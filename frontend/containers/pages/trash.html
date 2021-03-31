@@ -45,13 +45,14 @@
             <img class="logo-infos" src="../../assets/img/joinlogo.png">
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="app.html">Board</button>
-                <a class="mdl-navigation__link" href="backlog.html" >Backlog</button>
-                <a class="mdl-navigation__link" href="archieve.html" >Archivierte</button>
-                <a class="mdl-navigation__link" href="trash.html" >Papierkorb</button>
-                <a class="mdl-navigation__link" href="datenschutz.html">Datenschutz</a>
-                <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
-                <a class="mdl-navigation__link" href="faq.html">FAQ</a>
-                <button class="btn-login" onclick="logoutUser()">Logout</button>
+                    <a class="mdl-navigation__link" href="backlog.html">Backlog</button>
+                        <a class="mdl-navigation__link" href="newtask.html">New Task</button>
+                            <a class="mdl-navigation__link" href="archieve.html">Archivierte</button>
+                                <a class="mdl-navigation__link" href="trash.html">Papierkorb</button>
+                                    <a class="mdl-navigation__link" href="datenschutz.html">Datenschutz</a>
+                                    <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
+                                    <a class="mdl-navigation__link" href="faq.html">FAQ</a>
+                                    <button class="btn-login" onclick="logoutUser()">Logout</button>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -60,9 +61,24 @@
                 <div id="titlebeforenote" class="titlebeforenote"></div>
                 <!-- <div id="notebox" class="notebox"></div> -->
                 <!-- Your content goes here -->
-                <div id="delete" class="tasktrash">
-
-                </div>
+                <table class="tablebacklog">
+                    <thead>
+                        <tr>
+                            <th>Assigned</th>
+                            <th>Titel</th>
+                            <th>Beschreibung</th>
+                            <th>zurück ins Backlog</th>
+                            <th>Löschen</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="delete">
+                      
+                
+                    </tbody>
+                  
+                
+                </table>
 
             </div>
 

@@ -135,6 +135,11 @@ body {
     flex-direction: column;
 }
 
+.form2 input{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 .title {
     min-height: 24px;
     margin-bottom: 4px;
@@ -268,6 +273,9 @@ body {
 .backlogrowtitle {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-left: 24px;
+    margin-right: 24px;
 }
 
 .logo-infos {
@@ -343,4 +351,13 @@ body {
     color: black;
     font-size: 18px;
     margin-right: 10px;
+}
+
+.tablebacklog {
+    width: 80vw;
+}
+
+.cell{
+    align-items: center;
+    text-align: center;
 }

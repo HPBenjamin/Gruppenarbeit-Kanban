@@ -5,7 +5,9 @@ let todo = JSON.parse(localStorage.getItem(`notes`));
 
 function submit(j) {
 
-    document.getElementById(`taskformbutton${j}`).style.display = "flex";
+    if (j != 6) {
+        document.getElementById(`taskformbutton${j}`).style.display = "flex";
+    }
 
     let title = document.getElementById(`inputtitle${j}`).value;
     let note = document.getElementById(`inputdescription${j}`).value;
@@ -41,8 +43,11 @@ function submit(j) {
         case 5:
             category = document.getElementById(`inputcategory`).value
             break
+        case 6:
+            category = document.getElementById(`inputcategory`).value
+            break
         default:
-            category = "backlog";
+            category = "to_do";
     }
 
     console.log(title, note);
@@ -74,12 +79,13 @@ function submit(j) {
 
     // console.log(title, note, show); -- still here for debug
 
-    document.getElementById(`taskform${j}`).innerHTML = ``;
-
-    if (j != 5) {
+    if (j != 6) {
+        document.getElementById(`taskform${j}`).innerHTML = ``;
+    }
+    if (j != 5 && j != 6) {
         loadnotes(0);
     }
-    else{
+    if (j == 5) {
         loadnotes(1);
     }
 }
@@ -106,7 +112,7 @@ function backtoBacklog(i, k) {
     var showlocal = JSON.parse(localStorage.getItem(`notes`));
     // console.log(showlocal[i]);
     showlocal[i].show = 0;
-    showlocal[i].category = "backlog";
+    showlocal[i].category = "to_do";
     localStorage.setItem('notes', JSON.stringify(showlocal));
 
     loadnotes(k);

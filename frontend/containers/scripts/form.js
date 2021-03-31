@@ -19,7 +19,8 @@ function taskform(o) {
             <div id="assigneduser${o}"></div>
         </form>
         <button class="submitbutton" onclick="submit(${o})">Ok</button>
-    </div>`
+    </div>
+    `
     assign(o);
     taskformmanipultionforBacklog(o);
 }
@@ -53,5 +54,18 @@ function assign(o) {
         `;
     for (let g = 0; g < user.length; g++) {
         document.getElementById("teammembers").innerHTML += `<option value=${user[g].name}>`
+    }
+}
+
+/**  */
+
+function fillteammembers(event){
+    event.preventDefault();
+    
+    document.getElementById("members").innerHTML = ``;
+
+    let filteruser = JSON.parse(localStorage.getItem("user"));
+    for (let g = 0; g < filteruser.length; g++) {
+        document.getElementById("members").innerHTML += `<option value=${filteruser[g].name}>`
     }
 }
