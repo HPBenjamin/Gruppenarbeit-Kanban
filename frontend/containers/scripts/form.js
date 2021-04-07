@@ -1,3 +1,4 @@
+setURL('http://gruppe-61.developerakademie.com/backend');
 
 function taskform(o) {
 
@@ -59,13 +60,16 @@ function assign(o) {
 
 /**  */
 
-function fillteammembers(event){
+async function fillteammembers(event){
     event.preventDefault();
-    
+    await downloadFromServer();
     document.getElementById("members").innerHTML = ``;
-
-    let filteruser = JSON.parse(localStorage.getItem("user"));
+    
+    let filteruser = await backend.getItem("user");
+    console.log(filteruser);
+    //let filteruser = JSON.parse(localStorage.getItem("user"));
     for (let g = 0; g < filteruser.length; g++) {
         document.getElementById("members").innerHTML += `<option value=${filteruser[g].name}>`
     }
 }
+

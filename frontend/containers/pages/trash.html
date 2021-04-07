@@ -8,6 +8,7 @@
     <link href="../../css/start.css" rel="stylesheet">
     </link>
 
+    <script src="../../shared/mini_backend.js"></script>
     <script src="../scripts/tasks.js"></script>
     <script src="../../shared/auth.js"></script>
 
@@ -21,7 +22,7 @@
 
 </header>
 
-<body onload="isloggedin(); showcorretTitle(3); loadnotes(3); init()">
+<body onload="isloggedin(); showcorretTitle(3); loadnotes(3)">
 
     <!-- The drawer is always open in large screens. The header is always shown,
   even in small screens. -->
@@ -71,17 +72,17 @@
                             <th>Löschen</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody id="delete">
-                      
-                
+
+
                     </tbody>
-                  
-                
+
+
                 </table>
 
             </div>
-
+            <div id="short_message" class="short_message displaynone">zurück ins Backlog verschoben</div>
         </main>
     </div>
 

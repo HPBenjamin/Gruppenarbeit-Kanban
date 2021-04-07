@@ -1,16 +1,22 @@
+// setURL('http://developerakademie.com/smallest_backend_ever');
+setURL('http://gruppe-61.developerakademie.com/backend');
+
 let Name = "";
 let Pwd = "";
-let User = JSON.parse(localStorage.getItem("user")) || [];
+let User; // if local = yes and you wanna use localstorage JSON.parse(localStorage.getItem("user")) || [];
 
+async function userloading() {
+    await downloadFromServer();
+    User = await backend.getItem(`user`) || [];  
+    console.log(User);
+}
+
+/** 
 function userloading() {
-    if (!localStorage.getItem("user")){
+    if (!localStorage.getItem("user")) {
         localStorage.setItem("user", JSON.stringify(user));
     }
-}
-
-function show() {
-    console.log(user);
-}
+}*/
 
 function changedName() {
     Name = document.getElementById("nameInput").value;
@@ -22,8 +28,9 @@ function changedPwd() {
 
 function checkUser(event, Name, Pwd) {
     event.preventDefault();
-    User = JSON.parse(localStorage.getItem("user"));
+    // User = JSON.parse(localStorage.getItem("user"));
     console.log(User);
+    Pwd = sha256(Pwd);
     for (let i = 0; i < User.length; i++) {
         console.log(i);
         if ((User[i].name == Name) && (User[i].pwd == Pwd)) {
@@ -37,19 +44,23 @@ function checkUser(event, Name, Pwd) {
 
 async function loginUser(activeUser) {
     await sessionStorage.setItem("activeUser", JSON.stringify(activeUser));
-    window.location.assign("http://127.0.0.1:5500/frontend/containers/pages/app.html");
+    window.location.assign("http://gruppe-61.developerakademie.com/demo/containers/pages/app.html");
+    // window.location.assign("http://localhost:5500/frontend/containers/pages/app.html");
 }
 
 function logoutUser() {
     sessionStorage.removeItem("activeUser");
-    window.location.assign("http://127.0.0.1:5500/frontend/index.html");
+    window.location.assign("http://gruppe-61.developerakademie.com/demo/index.html");
+    // window.location.assign("http://localhost:5500/frontend/index.html");
 }
+
 
 function isloggedin() {
     let activeUser = sessionStorage.getItem("activeUser");
 
     if (activeUser == null || undefined) {
-        window.location.assign("http://127.0.0.1:5500/frontend/containers/pages/login.html")
+        window.location.assign("http://gruppe-61.developerakademie.com/demo/containers/pages/login.html")
+        // window.location.assign("login.html")
     }
     else {
         return;
@@ -58,10 +69,14 @@ function isloggedin() {
 
 function regisUser(event, Name, Pwd) {
     event.preventDefault();
-    let oldUser = JSON.parse(localStorage.getItem("user"));
-    oldUser.push({ "id": (User.length), "name": `${Name}`, "pwd": `${Pwd}` });
+    Pwd = sha256(Pwd);
+    let oldUser = User // JSON.parse(localStorage.getItem("user"));
     console.log(oldUser);
+    oldUser.push({ "id": (User.length), "name": `${Name}`, "pwd": `${Pwd}`});
     let newUser = oldUser
-    localStorage.setItem("user", JSON.stringify(newUser));
-    window.location.assign("http://127.0.0.1:5500/frontend/index.html");
+    console.log(newUser);
+    backend.setItem("user", newUser);
+    // localStorage.setItem("user", JSON.stringify(newUser));
+    window.location.assign("http://gruppe-61.developerakademie.com/demo/index.html");
+    // window.location.assign("http://localhost:5500/frontend/index.html");
 }

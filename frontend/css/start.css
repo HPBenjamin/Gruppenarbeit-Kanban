@@ -200,7 +200,7 @@ body {
     background-color: rgb(131, 148, 148);
     border: 2px solid rgb(2, 2, 5);
     border-radius: 4px;
-    margin-left: 110px;
+    margin-left: 50px;
     cursor: pointer;
 }
 
@@ -364,5 +364,20 @@ body {
 
 .cell {
     align-items: center;
+    text-align: center;
+}
+
+.displaynone{
+    display: none;
+}
+
+.short_message{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 200px;
+    height: 20px;
+    border-style: solid;
+    border-width: 1px;
     text-align: center;
 }

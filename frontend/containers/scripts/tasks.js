@@ -1,5 +1,6 @@
 
 let todo = JSON.parse(localStorage.getItem(`notes`));
+setURL('http://gruppe-61.developerakademie.com/backend');
 
 // submits the note and loads again all notes
 
@@ -115,6 +116,8 @@ function backtoBacklog(i, k) {
     showlocal[i].category = "to_do";
     localStorage.setItem('notes', JSON.stringify(showlocal));
 
+    shortMessage();
+
     loadnotes(k);
 };
 
@@ -142,3 +145,10 @@ function deleteNote(i, k) {
     loadnotes(k);
 };
 
+function shortMessage(){
+    document.getElementById("short_message").classList.remove("displaynone");
+    const after = () => {
+        document.getElementById("short_message").classList.add("displaynone");
+    }
+    setTimeout(() => {after()},3000);
+}
